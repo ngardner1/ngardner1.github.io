@@ -31,7 +31,7 @@ slider.oninput = function () {
 };
 var commentButton = document.querySelector("#comment-button");
 function getMessages(){
-	fetch("http://localhost:8080/messages", {credentials:"include"}).then(function (response) {
+	fetch("https://s23-deploy-ngardner1-production.up.railway.app/messages", {credentials:"include"}).then(function (response) {
 		response.json().then( function (messages) {
 			if (response.ok){
 				document.querySelector("#writing-area").style.display = "block";
@@ -100,7 +100,7 @@ function editMessages(mListItem, editButton, id, comment){
 	else{
 		editState = 0;
 		textBox.value = "";
-		var path = "http://localhost:8080/messages/" + id;
+		var path = "https://s23-deploy-ngardner1-production.up.railway.app/messages/" + id;
 		fetch(path, {method:"PUT", credentials:"include",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"message=" + textSend + "&section=" + section + "&date=" + currentDate + "&favyear=" + favYear + "&favastro=" + favAstro }).then(function (response){
 			if(!response.ok){
 				console.log("Could not delete item");
@@ -117,7 +117,7 @@ function editMessages(mListItem, editButton, id, comment){
 function deleteMessages(mListItem, deleteButton, id){
 	deleteButton.onclick = function(){
 		if (confirm("Are you sure you want to delete this comment?")){
-			var path = "http://localhost:8080/messages/" + id;
+			var path = "https://s23-deploy-ngardner1-production.up.railway.app/messages/" + id;
 			fetch(path, {method:"DELETE", credentials: "include"}).then(function (response){
 				if(!response.ok){
 					console.log("Could not delete item");
@@ -143,7 +143,7 @@ commentButton.onclick = function sendComment(){
 	var currentDate = new Date();
 	var section = document.querySelector("#year-heading").innerHTML;
 	textBox.value = "";
-	fetch("http://localhost:8080/messages", {method:"POST",credentials:'include', headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"message=" + textSend + "&section=" + section + "&date=" + currentDate + "&favyear=" + favYear + "&favastro=" + favAstro}).then(function (response) {
+	fetch("https://s23-deploy-ngardner1-production.up.railway.app/messages", {method:"POST",credentials:'include', headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"message=" + textSend + "&section=" + section + "&date=" + currentDate + "&favyear=" + favYear + "&favastro=" + favAstro}).then(function (response) {
 		if(!response.ok){
 			console.log("text error could not go through");
 		}else{
@@ -162,7 +162,7 @@ loginButton.onclick = function authenticate(){
 	document.querySelector("#username").value = "";
 	document.querySelector("#password").value = "";
 
-	fetch("http://localhost:8080/sessions", {method:"POST", credentials: "include",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"email=" + email + "&password=" + password}).then(function (response) {
+	fetch("https://s23-deploy-ngardner1-production.up.railway.app/sessions", {method:"POST", credentials: "include",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"email=" + email + "&password=" + password}).then(function (response) {
 		passfail = document.querySelector("#Title");
 		if(response.status  == 422){
 			console.log("User does not exist");
@@ -202,7 +202,7 @@ signUpButton.onclick = function register(){
 	document.querySelector("#lastname").value = "";
 	document.querySelector("#sEmail").value = "";
 	document.querySelector("#sPassword").value = "";
-	fetch("http://localhost:8080/users", {method:"POST", credentials: "include",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"firstname=" + firstname + "&lastname=" + lastname + "&email=" + email + "&password=" + password}).then(function (response) {
+	fetch("https://s23-deploy-ngardner1-production.up.railway.app/users", {method:"POST", credentials: "include",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"firstname=" + firstname + "&lastname=" + lastname + "&email=" + email + "&password=" + password}).then(function (response) {
 		passfail = document.querySelector("#sTitle");
 		if(!response.ok){
 			console.log("Sign up Unsuccessful");
