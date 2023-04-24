@@ -1,0 +1,62 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body id = "content">
+			<h1 id = "year-heading">Nasa Programs 1958-1969</h1>
+			<div class="slidecontainer">
+  <input type="range" min="0" max="11" value="0" class="slider" id="myRange">
+</div>	
+		<div id="writing-area">
+		</div>
+		<div id = "comments">
+			<button id="comment-button">Comment</button>
+			<textarea id="text-box" maxlength="700"></textarea>
+			<label for="favoriteYear">Favorite nasa year: </label>
+			<select name="favoriteYear" id = "favoriteYear">
+				<option>1958</option>	
+				<option>1959</option>	
+				<option>1960</option>	
+				<option>1961</option>	
+				<option>1962</option>	
+				<option>1963</option>	
+				<option>1964</option>	
+				<option>1965</option>	
+				<option>1966</option>	
+				<option>1967</option>	
+				<option>1968</option>	
+				<option>1969</option>	
+			</select>
+			<label for="favoriteAstronaught">Favorite Astronaught: </label>
+			<select name="favoriteAstronaught" id = "favoriteAstronaught">
+				<option>Niel Armstrong</option>	
+				<option>Buzz Aldrin</option>	
+				<option>Pete Conrad</option>	
+			</select>
+			<ol id="message_area">		
+			</ol>
+		</div>
+		<div id= "signIn">
+			<a id = "title">Please Log In</a><br>
+			<a>Email</a><br>
+			<input type="text" id="username" name="username" required></input><br>
+			<a>Password</a><br>
+			<input type="text" id="password" name="password" required></input><br>
+			<button id="loginButton">Login</button>
+		</div>
+
+		<div id= "signUp">
+			<a id = "sTitle">Please Sign Up</a><br>
+			<a>First Name</a><br>
+			<input type="text" id="firstname" name="firstname" required></input><br>
+			<a>Last Name</a><br>
+			<input type="text" id="lastname" name="lastname" required></input><br>
+			<a>Email</a><br>
+			<input type="text" id="sEmail" name="sEmail" required></input><br>
+			<a>Password</a><br>
+			<input type="text" id="sPassword" name="sPassword" required></input><br>
+			<button id="signUpButton">Sign Up</button>
+		</div>
+	<script src = "space.js"></script>
+	</body>
+</html>
