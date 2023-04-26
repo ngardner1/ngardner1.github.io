@@ -231,7 +231,7 @@ function pgFormatDate() {
 
 	  var parsed = new Date()
 
-	  return [parsed.getUTCFullYear(), zeroPad(parsed.getMonth() + 1), zeroPad(parsed.getDate()), zeroPad(parsed.getHours()), zeroPad(parsed.getMinutes()), zeroPad(parsed.getSeconds())].join(" ");
+	  return [parsed.getUTCFullYear(), zeroPad(parsed.getMonth() + 1), zeroPad(parsed.getDate()), zeroPad(parsed.getHours()), zeroPad(parsed.getMinutes()), zeroPad(parsed.getSeconds())].join("-");
 }
 //pyserver % pip3 install bcrypt passlib
 //from passlib.hash import bcrypt
