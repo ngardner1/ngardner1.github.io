@@ -88,7 +88,7 @@ function editMessages(mListItem, editButton, id, comment){
 	var textBox = document.querySelector("#text-box");
 	console.log("textBox input", textBox.value);
 	var textSend = textBox.value;
-	var currentDate = pgFormatDate();
+	var currentDate = new Date();
 	var section = document.querySelector("#year-heading").innerHTML;
 	var favYear = document.querySelector("#favoriteYear").value;
 	var favAstro = document.querySelector("#favoriteAstronaught").value;
@@ -140,7 +140,7 @@ commentButton.onclick = function sendComment(){
 	var favAstro = document.querySelector("#favoriteAstronaught").value;
 	console.log("textBox input", textBox.value);
 	var textSend = textBox.value;
-	var currentDate = pgFormatDate();
+	var currentDate = new Date();
 	var section = document.querySelector("#year-heading").innerHTML;
 	textBox.value = "";
 	fetch("https://s23-deploy-ngardner1-production.up.railway.app/messages", {method:"POST",credentials:'include', headers:{"Content-Type":"application/x-www-form-urlencoded"},body:"message=" + textSend + "&section=" + section + "&date=" + currentDate + "&favyear=" + favYear + "&favastro=" + favAstro}).then(function (response) {
@@ -224,15 +224,6 @@ fetch("https://api.jsonbin.io/v3/b/63d1bf57ebd26539d067c3e0").then(function (res
 	});
 
 });
-function pgFormatDate() {
-	  function zeroPad(d) {
-		      return ("0" + d).slice(-2)
-		    }
-
-	  var parsed = new Date()
-
-	  return [parsed.getUTCFullYear(), zeroPad(parsed.getMonth() + 1), zeroPad(parsed.getDate())].join("-");
-}
 //pyserver % pip3 install bcrypt passlib
 //from passlib.hash import bcrypt
 //!!create class for session store, put it in a new file!!
